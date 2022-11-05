@@ -15,7 +15,7 @@ git branch: 'development', credentialsId: '8dd2f226-6643-4b6c-99bb-6964a4b6b427'
 }
 
 stage('Build'){
-sh "${mavenHome}/bin/mvn clean packag"
+sh "${mavenHome}/bin/mvn clean package"
 }
 
 /*
@@ -69,6 +69,6 @@ def sendslacknotification(String buildStatus = 'STARTED') {
   }
 
   // Send notifications
-  slackSend (color: colorCode, message: summary)
+  slackSend (color: colorCode, message: summary, channel: "#Walmart")
 }
 
