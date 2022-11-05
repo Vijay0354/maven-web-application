@@ -9,7 +9,7 @@ echo "Node name is : ${env.NODE_NaME}"
 properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '6')), [$class: 'JobLocalConfiguration', changeReasonComment: ''], pipelineTriggers([pollSCM('* * * * *')])])
 
 try{
-
+sendslacknotification("STARTED")
 stage('CheckoutCode'){
 git branch: 'development', credentialsId: '8dd2f226-6643-4b6c-99bb-6964a4b6b427', url: 'https://github.com/Vijay0354/maven-web-application.git'
 }
